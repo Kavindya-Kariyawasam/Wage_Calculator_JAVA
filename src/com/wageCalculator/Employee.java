@@ -4,11 +4,16 @@ public class Employee {
     private int baseSalary;
     private int hourlyRate;
 
+    public Employee(int baseSalary, int hourlyRate) {   //Here we have created a custom constructor instead of default constructor created by JAVA compiler
+        setBaseSalary(baseSalary);
+        setHourlyRate(hourlyRate);
+    }
+
     public int calculateWage(int extraHours) {
         return baseSalary + (extraHours * hourlyRate);
     }
 
-    public void setBaseSalary(int baseSalary) {
+    private void setBaseSalary(int baseSalary) {
         if (baseSalary<=0)
             throw new IllegalArgumentException("Salary cannot be 0 or less.");
         this.baseSalary = baseSalary;
@@ -18,7 +23,7 @@ public class Employee {
         return baseSalary;
     }
 
-    public void setHourlyRate(int hourlyRate) {
+    private void setHourlyRate(int hourlyRate) {
         if (hourlyRate<=0)
             throw new IllegalArgumentException("Hourly rate cannot be 0 or negative.");
         this.hourlyRate = hourlyRate;
